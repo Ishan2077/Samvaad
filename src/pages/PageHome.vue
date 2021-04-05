@@ -37,7 +37,7 @@
         color="grey-2"
         size="10px"
       />
-
+    <q-list separator>
           <q-item
             v-for="qweet in qweets"
             :key="qweet.date"
@@ -56,7 +56,8 @@
                   @ishansharma
                 </span>
                 </q-item-label>
-              <q-item-label class="new-qweet text-body1">{{qweet.content}}
+              <q-item-label class="new-qweet text-body1">
+                {{qweet.content}}
               </q-item-label>
               <div class="qweet-icons row justify-between q-mt-sm">
                 <q-btn
@@ -91,9 +92,10 @@
               </div>
             </q-item-section>
           <q-item-section side top>
-          {{qweet.date | relativeDate }}
+          {{qweet.date | relativeDate}}
         </q-item-section>
       </q-item>
+    </q-list>
   </q-page>
 </template>
 
@@ -107,11 +109,11 @@ export default {
       qweets: [
         {
           content: 'Be your own hero, its cheaper than a movie ticket.',
-          date: 1615874201059
+          date: 1617645043956
         },
         {
           content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat justo id viverra consequat. Integer feugiat lorem faucibus est ornare scelerisque. Donec tempus, nunc vitae semper sagittis, odio magna semper ipsum, et laoreet sapien mauris vitae arcu.',
-          date: 1615874233740
+          date: 1617645043967
         }
       ]
     }
@@ -128,11 +130,11 @@ export default {
       const dateToDelete = qweet.date
       const index = this.qweets.findIndex(qweet => qweet.date === dateToDelete)
       this.qweets.splice(index, 1)
-    },
-    filters: {
-      relativeDate (value) {
-        return formatDistance(value, new Date())
-      }
+    }
+  },
+  filters: {
+    relativeDate (value) {
+      return formatDistance(value, new Date())
     }
   }
 }
