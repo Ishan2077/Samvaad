@@ -1,4 +1,4 @@
-# Samvad (samvad)
+# Samvaad (samvaad)
 
 A Quasar Framework app
 
