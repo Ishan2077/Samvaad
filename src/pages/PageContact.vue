@@ -6,7 +6,7 @@
       For any queries or complaints, kindly fill this form. We will look into your feedback and get back to you shortly!
     <br>
     </p>
-    <div class="q-pa-md">
+    <!--<div class="q-pa-md">
       <div class="q-gutter-md" style="max-width: 300px">
         <q-input v-model="text" label="Your Name *" required/>
         <q-input v-model="text" label="Email Address *" required type="email"/>
@@ -34,7 +34,7 @@
     </div>
     </div>
     <footer>For general suggestions and more, kindly refer to the <b>Mouthoff</b> section.</footer>
-    </div>
+   --> </div>
   </q-page>
 </template>
 
