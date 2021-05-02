@@ -38,7 +38,12 @@
         size="10px"
       />
     <q-list separator>
-          <q-item
+      <transition-group
+      appear
+      enter-active-class="animated slideInDown slow"
+      leave-active-class="animated slideOutRight slow"
+      >
+      <q-item
             v-for="qweet in qweets"
             :key="qweet.date"
             class="qweet q-py-md"
@@ -95,6 +100,7 @@
           {{qweet.date | relativeDate}}
         </q-item-section>
       </q-item>
+      </transition-group>
     </q-list>
   </q-page>
 </template>
@@ -125,6 +131,7 @@ export default {
         date: Date.now()
       }
       this.qweets.unshift(newQweet)
+      this.newQweetContent = ''
     },
     deleteQweet (qweet) {
       const dateToDelete = qweet.date
@@ -149,6 +156,8 @@ export default {
   border-top: 1px solid
   border-bottom: 1px solid
   border-color: $grey-4
+.qweet:not(:first-child)
+  border-top: 1px solid rgba(0,0,0,0.12)
 .qweet-content
   white-space: pre-line
 .qweet-icons
