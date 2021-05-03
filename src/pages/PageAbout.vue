@@ -7,26 +7,71 @@
       much more besides. <br>
       We bring novel ideas to life and make communication more accessible than ever before!
     </p>
-    <h5 class="q-mt-none q-mb-md text-weight-bold">Features</h5>
-    <ul class="list-styles">
-      <li>Share </li>
-      <li>Communicate</li>
-      <li>Direct Messages</li>
-      <li>Current News</li>
-      <li>More features being added!</li>
-    </ul>
-    <br>
-    <p>As we continue to develop this application for you, we want you to tell us about the overall experience and how we can shape this experience into something truly spectacular.
-      <br>
-       We take all feedback(s) with utmost attention and strive to change the way we communicate.
-    </p>
+    <div class="q-pa-md">
+    <div class="q-gutter-md">
+      <q-carousel
+        v-model="slide"
+        transition-prev="scale"
+        transition-next="scale"
+        swipeable
+        animated
+        control-color="white"
+        navigation
+        padding
+        arrows
+        height="350px"
+        class="bg-primary text-white shadow-1 rounded-borders"
+      >
+        <q-carousel-slide name="welcome" class="column no-wrap flex-center">
+          <q-icon name="whatshot" size="56px" />
+          <div class="q-mt-md text-center">
+            {{ slide1 }}
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide name="email_icon" class="column no-wrap flex-center">
+          <q-icon name="alternate_email" size="56px" />
+          <div class="q-mt-md text-center">
+            {{ slide2 }}
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide name="share_button" class="column no-wrap flex-center">
+          <q-icon name="ios_share" size="56px" />
+          <div class="q-mt-md text-center">
+            {{ slide3 }}
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide name="chat" class="column no-wrap flex-center">
+          <q-icon name="question_answer" size="56px" />
+          <div class="q-mt-md text-center">
+            {{ slide4 }}
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide name="news" class="column no-wrap flex-center">
+          <q-icon name="timeline" size="56px" />
+          <div class="q-mt-md text-center">
+            {{ slide5 }}
+          </div>
+        </q-carousel-slide>
+      </q-carousel>
+    </div>
+  </div>
     </div>
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'PageHome'
+  name: 'PageHome',
+  data () {
+    return {
+      slide: 'style',
+      slide1: 'Welcome to Samvaad!',
+      slide2: 'Connect',
+      slide3: 'Share',
+      slide4: 'Chat',
+      slide5: 'Catch up with the latest news'
+    }
+  }
 }
 </script>
 

@@ -2,6 +2,10 @@
   <q-page class="q-pa-sm">
     <h4 class="q-mt-none q-mb-md text-weight-bold">Mouthoff</h4>
     <div class="text-body1">
+      <q-banner rounded class="bg-red-6 text-black">
+        We are facing a large number of requests. Please wait for us to respond within 7 business days.
+      </q-banner>
+      <br>
       <p class="text-deep-purple">The official way to stay even more connected! Friends, Right? :)</p>
       <p> Anything you want us to tell, be it your feedback, to request a feature, some jokes or any general suggestion on how we can improve, please drop an e-mail on the following address:<br>
       <i>Please note that any Support service(s) will <b>not</b> be entertained through this section. Kindly visit the <b>Contact</b> page for more details.</i> </p>

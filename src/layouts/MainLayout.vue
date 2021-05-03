@@ -83,7 +83,7 @@
           <q-item-label caption> What's better? See what others think about it . . .</q-item-label>
         </q-item-section>
       <q-item-section side top>
-          <q-item-label caption>11 mins ago</q-item-label>
+          <q-item-label caption>A long time ago</q-item-label>
       </q-item-section>
       </q-item>
        </q-list>

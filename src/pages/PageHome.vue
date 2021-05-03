@@ -1,5 +1,6 @@
 <template>
-  <q-page>
+  <q-page class="relative-position">
+    <q-scroll-area class="absolute fullscreen">
       <div class="q-py-lg q-px-md row items-end q-col-gutter-md">
         <div class="col">
           <q-input
@@ -41,7 +42,7 @@
       <transition-group
       appear
       enter-active-class="animated slideInDown slow"
-      leave-active-class="animated slideOutRight slow"
+      leave-active-class="animated zoomOut slow"
       >
       <q-item
             v-for="qweet in qweets"
@@ -59,6 +60,7 @@
                 <strong>Ishan Sharma</strong>
                 <span class="text-grey-7">
                   @ishansharma
+                  <br class="lt-md">&bull; {{ qweet.date | relativeDate}}
                 </span>
                 </q-item-label>
               <q-item-label class="new-qweet text-body1">
@@ -96,12 +98,10 @@
                 />
               </div>
             </q-item-section>
-          <q-item-section side top>
-          {{qweet.date | relativeDate}}
-        </q-item-section>
       </q-item>
       </transition-group>
     </q-list>
+    </q-scroll-area>
   </q-page>
 </template>
 
