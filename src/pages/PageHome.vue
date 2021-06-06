@@ -106,31 +106,38 @@
 </template>
 
 <script>
+import db from 'src/boot/firebase'
 import { formatDistance } from 'date-fns'
 export default {
   name: 'PageHome',
-  data () {
-    return {
-      newQweetContent: '',
-      qweets: [
-        {
-          content: 'Be your own hero, its cheaper than a movie ticket.',
-          date: 1617645043956
-        },
-        {
-          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat justo id viverra consequat. Integer feugiat lorem faucibus est ornare scelerisque. Donec tempus, nunc vitae semper sagittis, odio magna semper ipsum, et laoreet sapien mauris vitae arcu.',
-          date: 1617645043967
-        }
-      ]
-    }
-  },
+  // data () {
+  //   return {
+  //     newQweetContent: '',
+  //     qweets: [
+  //       {
+  //         content: 'Be your own hero, its cheaper than a movie ticket.',
+  //         date: 1617645043956
+  //       },
+  //       {
+  //         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat justo id viverra consequat. Integer feugiat lorem faucibus est ornare scelerisque. Donec tempus, nunc vitae semper sagittis, odio magna semper ipsum, et laoreet sapien mauris vitae arcu.',
+  //         date: 1617645043967
+  //       }
+  //     ]
+  //   }
+  // },
   methods: {
     addNewQweet () {
       const newQweet = {
         content: this.newQweetContent,
         date: Date.now()
       }
-      this.qweets.unshift(newQweet)
+      // this.qweets.unshift(newQweet)
+      db.collection('qweets').add(newQweet).then((docRef) => {
+        console.log('Document written with ID: ', docRef.id)
+      })
+        .catch((error) => {
+          console.error('Error adding document: ', error)
+        })
       this.newQweetContent = ''
     },
     deleteQweet (qweet) {
@@ -143,6 +150,23 @@ export default {
     relativeDate (value) {
       return formatDistance(value, new Date())
     }
+  },
+  mounted () {
+    db.collection('qweets').orderBy('date').onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        const qweetChange = change.doc.data()
+        if (change.type === 'added') {
+          console.log('New qweet: ', qweetChange)
+          this.qweets.unshift(qweetChange)
+        }
+        if (change.type === 'modified') {
+          console.log('Modified qweet: ', qweetChange)
+        }
+        if (change.type === 'removed') {
+          console.log('Removed qweet: ', qweetChange)
+        }
+      })
+    })
   }
 }
 </script>

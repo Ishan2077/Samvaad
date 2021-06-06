@@ -7,7 +7,7 @@
           <q-icon name="online_prediction" color="dark" />
         </template>
         <div class="text-weight-bold">
-          We are receiving huge number of requests at the moment.<br> Kindly wait for 7 business days for our Mouthoff Support Executive to reach out to you. <br>Sorry for the inconvenience :(
+          We are receiving huge number of requests at the moment. Kindly wait for <big>7</big> business days for our Mouthoff Support Executive to reach out to you. Sorry for the inconvenience :(
         </div>
     </q-banner>
       <br>
